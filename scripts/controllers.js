@@ -21,27 +21,38 @@ angular.module('Namegame')
 				)
 			}
 
-			// $scope.orderByDate = function(item) {
-			//     var parts = item.volumeInfo.publishedDate.split('-');
-			//     console.log("----" + parts)
-			//     if (parts.length == 3)
-			//     var date = new Date(parseInt(parts[2]), 
-			//                         parseInt(parts[1]), 
-			//                         parseInt(parts[0]));
-			//     return date;
-			// };
+			$scope.orderByDate = function(item) {
+			    var parts = item.volumeInfo.publishedDate.split('-');
+			    console.log("parts before ---- " + parts)
+
+			    if (parts.length == 1) {
+			    	parts[1] = "01";
+			    	parts[2] = "01";
+			    } else if (parts.length == 2) {
+			    	parts[2] = "01";
+			    }
+
+			    console.log("parts after ----" + parts)
+
+			    var date = new Date(parseInt(parts[0]), 
+			                        parseInt(parts[1]), 
+			                        parseInt(parts[2]));
+
+			    console.log("new date ----" + date)
+			    return date;
+			};
 
 		}])
 
-.filter('orderByDate', function($filter)
-{
-    return function(input)
-    {
-        if(input == null){ return ""; }
-        var _date = $filter('date')(new Date(input), 'dd/MM/yyyy');
-        return _date.toUpperCase();
-    };
-});
+// .filter('orderByDate', function($filter)
+// {
+//     return function(input)
+//     {
+//         if(input == null){ return ""; }
+//         var _date = $filter('date')(new Date(input), 'dd/MM/yyyy');
+//         return _date.toUpperCase();
+//     };
+// });
 
 
 
