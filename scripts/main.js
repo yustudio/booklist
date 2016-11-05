@@ -26,14 +26,14 @@ angular.module('Namegame', ['ui.router'])
 .directive('personTile', function(){
 
 	return {
-		retrict: 'A',
+		restrict: 'A',
 		scope: {
 			p: '=person'  // private scope containing object p
 		},		
 		templateUrl: 'views/person-template.html',
 		link: function (scope, elem, attrs) {
 			scope.hello = function() {
-				alert("hello, this is " + scope.p.name)
+				alert("hello, this is " + scope.p.authors)
 			}
 		}
 	}

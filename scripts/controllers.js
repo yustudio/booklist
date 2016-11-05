@@ -6,12 +6,10 @@ angular.module('Namegame')
 			$scope.submitName = function() {
 				nameFactory.getNames($scope.filterName)
 				.then(
-					function(response){
-						console.log("response is  " + response);
-	//					console.log(JSON.stringify(response,null,2));
+					function(response){						
+						// console.log(JSON.stringify(response,null,2));
 						var persons = response["data"]["items"];
-						console.log("size of data: " + persons.length)
-						// console.log("persons " + JSON.stringify(persons[1], null, 2));						
+						//console.log("size of data: " + persons.length)						
 						$scope.persons = persons;
 
 					},
@@ -23,7 +21,7 @@ angular.module('Namegame')
 
 			$scope.orderByDate = function(item) {
 			    var parts = item.volumeInfo.publishedDate.split('-');
-			    console.log("parts before ---- " + parts)
+			    //console.log("parts before ---- " + parts)
 
 			    if (parts.length == 1) {
 			    	parts[1] = "01";
@@ -32,13 +30,13 @@ angular.module('Namegame')
 			    	parts[2] = "01";
 			    }
 
-			    console.log("parts after ----" + parts)
+			    // console.log("parts after ----" + parts)
 
 			    var date = new Date(parseInt(parts[0]), 
 			                        parseInt(parts[1]), 
 			                        parseInt(parts[2]));
 
-			    console.log("new date ----" + date)
+			    // console.log("new date ----" + date)
 			    return date;
 			};
 
