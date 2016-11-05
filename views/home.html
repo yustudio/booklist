@@ -1,0 +1,25 @@
+ <div class="container" ng-controller="HomeController">
+
+ 	<!-- without custom directive -->
+ 	<!-- <div class="tile" ng-repeat="p in persons">
+ 		<h3>{{p.name}}</h3>
+ 		<img width="100" ng-src="{{p.url}}">
+ 	</div> -->
+	<form class="form-horizontal" name="names" ng-submit="submitName()" novalidate>
+
+ 	<p>
+ 		Display author: <input type="text" ng-model="filterName">
+ 	</p>
+ 	<div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+ 	</form>
+
+ 	<div ng-repeat="p in persons | orderBy: orderByDate">
+ 	<!-- <div ng-repeat="p in persons | orderBy: 'p.volumeInfo.publishedDate':true"> -->
+ 		<div person-tile person="p"></div>
+ 	</div>
+
+ </div>
